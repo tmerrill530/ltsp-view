@@ -49,3 +49,9 @@ All commands run as root (`sudo bash`)
 ```
 Accept the EULA. I answered yes to USB redirection, webcam sharing, and no to everything else. When you are asked about auto starting the service say yes. Answer yes to having VMWare scan your system for dependiencies. If you have any errors now would be a good time to fix them.
 
+* Set a password for the root user. I used this for troubleshooting.
+```
+# passwd
+# exit
+```
+
