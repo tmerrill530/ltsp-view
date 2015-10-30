@@ -13,6 +13,7 @@ https://www.vmware.com/pdf/horizon-view/horizon-client-linux-document.pdf
 * Ubuntu Server 14.04 LTS 
 * Static IP set
 * OpenSSH installed for remote access to server
+* VMware-Horizon-Client-3.5.xx client .bundle
 * Windows DHCP Server - I used a Windows DHCP server because that is what I already have setup in my environment.
 
 # Ubuntu Setup
@@ -34,4 +35,17 @@ All commands run as root (`sudo bash`)
 ```
 # ltsp-build-client --arch amd64 --chroot view --kiosk --dist precise --late-package libxss1 libtheora0 libspeex1 openbox
 ```
+
+# Client Setup
+* Copy the VMWare.bundle to your newly created chroot
+```
+# cp VMware-Horizon-Client-3.5.0-2999900.x64.bundle  /opt/ltsp/view/
+```
+* Install the client
+```
+# ltsp-chroot -ma view
+# chmod +x VMware-Horizon-Client-3.5.0-2999900.x64.bundle
+# ./ VMware-Horizon-Client-3.5.0-2999900.x64.bundle
+```
+Accept the EULA. I answered yes to USB redirection, webcam sharing, and no to everything else. When you are asked about auto starting the service say yes. Answer yes to having VMWare scan your system for dependiencies. If you have any errors now would be a good time to fix them.
 
