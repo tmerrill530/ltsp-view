@@ -22,4 +22,16 @@ All commands run as root (`sudo bash`)
  ```
 # apt-get install ltsp-server-standalone
 ```
+2. Remove the DHCP service from auto starting. As I mentioned previously I have a Windows DHCP server in my environment
+```
+# update-rc.d -f isc-dhcp-server remove
+```
+3. Disable the firewall
+```
+# ufw disable
+```
+4. Build the chroot that your clients will PXE boot
+```
+# ltsp-build-client --arch amd64 --chroot view --kiosk --dist precise --late-package libxss1 libtheora0 libspeex1 openbox
+```
 
