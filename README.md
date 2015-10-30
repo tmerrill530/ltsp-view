@@ -7,6 +7,7 @@ I found these resources invaluable while muddling my way through this
 https://github.com/leschartreux/ltsp-vmview
 https://help.ubuntu.com/community/UbuntuLTSP/VMWareViewVDI
 http://wiki.ltsp.org/wiki/LTSPedia
+https://www.vmware.com/pdf/horizon-view/horizon-client-linux-document.pdf
 
 # Requirements
 * Ubuntu Server 14.04 LTS 
@@ -16,4 +17,9 @@ http://wiki.ltsp.org/wiki/LTSPedia
 
 # Setup
 All commands run as root (`sudo bash`)
+
 1. Install the LTSP Server package
+ ```
+# apt-get install ltsp-server-standalone
+```
+
