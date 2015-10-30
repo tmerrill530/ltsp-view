@@ -30,7 +30,7 @@ All commands run as root (`sudo bash`)
 ```
 # ufw disable
 ```
-* Build the chroot that your clients will PXE boot
+* Build the chroot that your clients will PXE boot. This will create a Precise (Ubuntu 12.04) 64 bit chroot. Precise is the offically supported 64 bit version of Linux for the View client. This command also installs some things needed by VMWare View to run.
 ```
 # ltsp-build-client --arch amd64 --chroot view --kiosk --dist precise --late-package libxss1 libtheora0 libspeex1 openbox
 ```
