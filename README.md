@@ -64,3 +64,8 @@ Accept the EULA. I answered yes to USB redirection, webcam sharing, and no to ev
 # exit
 ```
 
+Now it is time to put all the files where they need to be to make this all work. At some point I will write a script but for now:
+```
+# cp 
+```
+
