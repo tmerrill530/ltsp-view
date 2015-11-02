@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# The following script works for LTSP5 and was tested in Ubuntu 9.10 (Karmic Koala) Linux.
+# Original rdesktop script by James A. McQuillan,
+# modified for LTSP5 by Colin Osterhout of SERRC (www.serrc.org).
+# modified for VMWare View Open Client by
+#   Mikael Fridh <mikael.fridh@etraveli.com>
+#
+# This software is licensed under the Gnu General Public License.
+# The full text of which can be found at http://www.LTSP.org/license.txt
+#
+# Call this through /opt/ltsp/i386/etc/lts.conf like this:
+# CONSOLE_KEYMAP="se"
+# VMVIEW_SERVERURL="view.example.com"
+# VMVIEW_OPTIONS="--fullscreen"
+# XKBLAYOUT="se"
+# SCREEN_02=vmview
+#
+
+PATH=/bin:$PATH; export PATH
+. /usr/share/ltsp/screen-x-common
+
+if [ -x /usr/share/ltsp/xinitrc ]; then
+    xinitrc=/usr/share/ltsp/xinitrc
+fi
+
+export USER="root"
+export HOME="/root"
+xinit $xinitrc /usr/bin/openbox-session \
+ -- "$DISPLAY" "vt${TTY}" ${X_ARGS} >/dev/null

@@ -1,0 +1,7 @@
+default ltsp
+
+
+label ltsp
+kernel vmlinuz
+append ro initrd=initrd.img root=/dev/nbd0 init=/sbin/init-ltsp quiet nbdroot=<IP of your LTSP server>:/opt/ltsp/view
+
