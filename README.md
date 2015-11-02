@@ -76,7 +76,11 @@ Now it is time to put all the files where they need to be to make this all work.
 # cp ltsp-update-image.excludes /etc/ltsp/
 # cp vmview /opt/ltsp/view/usr/share/ltsp/screen.d/
 # cp launch_vmview /opt/ltsp/view/root/
-
+# nano view-mandatory-config
+```
+Enter the IP address or hostname of your ViewConnection Server where indicated
+```
+# cp view-mandatory-config /opt/ltsp/view/etc/vmware/
 # mkdir /opt/ltsp/view/root/.config
 # cp -r openbox /opt/ltsp/view/root/.config/
 # ltsp-update-image
