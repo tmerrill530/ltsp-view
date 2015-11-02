@@ -19,6 +19,8 @@ https://www.vmware.com/pdf/horizon-view/horizon-client-linux-document.pdf
 * OpenSSH installed for remote access to server
 * VMware-Horizon-Client-3.5.xx client .bundle
 * Windows DHCP Server - I used a Windows DHCP server because that is what I already have setup in my environment.
+* Windows DHCP Scope Option 66 set to the IP or hostname of your LTSP server
+* Windows DHCP Scope Option 67 set to `/ltsp/view/pxelinux.0`
 
 # Ubuntu Setup
 All commands run as root (`sudo bash`)
@@ -66,6 +68,25 @@ Accept the EULA. I answered yes to USB redirection, webcam sharing, and no to ev
 
 Now it is time to put all the files where they need to be to make this all work. At some point I will write a script but for now:
 ```
-# cp 
+# cd ltsp-view
+# chown root:root *
+# chown -R root:root openbox/
+# chmod +x launch_vmview
+# chmod +x vmview
+# cp ltsp-update-image.excludes /etc/ltsp/
+# cp vmview /opt/ltsp/view/usr/share/ltsp/screen.d/
+# cp launch_vmview /opt/ltsp/view/root/
+# mkdir /opt/ltsp/view/root/.config
+# cp -r openbox /opt/ltsp/view/root/.config/
+# ltsp-update-image
 ```
 
+Running `ltsp-update-image` will take a minute or five.
+
+After `ltsp-update-image` finishes,
+```
+# nano /var/lib/tftpboot/view/pxelinux.cfg/default
+```
+remove the boot arguments until "quiet" and then add `nbdroot=<IP of ltsp server>:/opt/ltsp/view`. You can look at my example `default` file.
+
+Now PXE boot a client
