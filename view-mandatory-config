@@ -1,6 +1,7 @@
 view.allMonitors="true"
 view.sslVerificationMode="3"
 view.defaultBroker="YOUR VIEWCONNECTION IP"
+view.autoConnectBroker="YOUR VIEWCONNECTION IP"
 view.defaultLogLevel="5"
 view.fullScreen="true"
 view.sendCtrlAltDelToVM="true"
