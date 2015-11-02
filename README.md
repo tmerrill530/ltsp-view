@@ -3,7 +3,7 @@ Ubuntu 14.04, LTSP, PXE Boot VMWare View Client 3.5
 
 Disclaimer: I am by no means a Linux Guru. I know just enough to be dangerous. This setup worked for me, your results may vary. I really hope someone with more Linux knowledge than myself can improve on this.
 
-I needed a non-destructive and cheap way to turn old PCs or any PC into a VMWare View client. I also wanted all the fluff gone so that the user was just presented with the View client. What is the point of launching Windows, launching the View client... and logging back in to a Windows VDI session.
+I needed a non-destructive and cheap way to turn old PCs or any PC into a VMWare View client. I also wanted all the fluff gone so that the user was just presented with the View client. What is the point of launching Windows, launching the View client... and logging back in to a Windows VDI session?
 
 I found these resources invaluable while muddling my way through this
 
