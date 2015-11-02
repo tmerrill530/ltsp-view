@@ -76,6 +76,7 @@ Now it is time to put all the files where they need to be to make this all work.
 # cp ltsp-update-image.excludes /etc/ltsp/
 # cp vmview /opt/ltsp/view/usr/share/ltsp/screen.d/
 # cp launch_vmview /opt/ltsp/view/root/
+
 # mkdir /opt/ltsp/view/root/.config
 # cp -r openbox /opt/ltsp/view/root/.config/
 # ltsp-update-image
