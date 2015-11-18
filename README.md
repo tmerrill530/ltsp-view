@@ -96,4 +96,8 @@ After `ltsp-update-image` finishes,
 ```
 remove the boot arguments until "quiet" and then add `nbdroot=<IP of ltsp server>:/opt/ltsp/view`. You can look at my example `default` file.
 
+```
+# cp ltsp-view/lts.conf /var/lib/tftp/ltsp/view/
+```
+
 Now PXE boot a client
