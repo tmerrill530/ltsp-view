@@ -24,7 +24,20 @@ https://www.vmware.com/pdf/horizon-view/horizon-client-linux-document.pdf
 * Windows DHCP Scope Option 66 set to the IP or hostname of your LTSP server
 * Windows DHCP Scope Option 67 set to `/ltsp/view/pxelinux.0`
 
-# Ubuntu Setup
+# Quick Setup
+All commands run as root
+* Edit view-mandatory-config to suite your environment
+```
+# nano view-mandatory-config
+```
+* Run the setup script which will create the LTSP chroot and install the VMWare View Client
+```
+# chmod +x setup.sh
+# ./setup.sh <chroot name>
+```
+* During the View Client install you will be prompted to press Enter, then answer "yes" and "yes" to the questions about auto starting the client services and do a system compatibility scan.
+
+# Manual Setup
 All commands run as root (`sudo bash`)
 
 * Install the LTSP Server package
