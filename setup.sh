@@ -15,6 +15,8 @@ if [ -z $CLIENT ]; then
         exit 1;
 fi
 
+cp ltsp-update-image.excludes /etc/ltsp/
+
 echo "Building LTSP CHROOT $DIR"
 echo "---------------------------------------------------------------------------------------------"
 ltsp-build-client --arch amd64 --chroot $DIR --dist precise --late-package libxss1 libtheora0 libspeex1 openbox
