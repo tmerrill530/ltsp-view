@@ -17,6 +17,10 @@ https://www.vmware.com/pdf/horizon-view/horizon-client-linux-document.pdf
 
 # Requirements
 * Ubuntu Server 14.04 LTS 
+* Make sure LTSP is up to date
+
+https://bugs.launchpad.net/ubuntu/+source/ltsp/+bug/1506756/comments/1
+
 * Static IP set
 * OpenSSH installed for remote access to server
 * VMware-Horizon-Client-3.5.xx client .bundle
