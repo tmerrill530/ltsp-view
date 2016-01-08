@@ -15,8 +15,6 @@ if [ -z $CLIENT ]; then
         exit 1;
 fi
 
-cp ltsp-update-image.excludes /etc/ltsp/
-
 echo "Building LTSP CHROOT $DIR"
 echo "---------------------------------------------------------------------------------------------"
 ltsp-build-client --arch amd64 --chroot $DIR --dist precise --late-package libxss1 libtheora0 libspeex1 openbox
@@ -24,7 +22,7 @@ ltsp-build-client --arch amd64 --chroot $DIR --dist precise --late-package libxs
 echo "Installing other items needed in chroot"
 echo "---------------------------------------------------------------------------------------------"
 ltsp-chroot -ma $DIR apt-get update && apt-get upgrade
-ltsp-chroot -ma $DIR apt-get install openbox linux-generic-lts-quantal --yes
+ltsp-chroot -ma $DIR apt-get install openbox linux-generic-lts-trusty libxss1 libtheora0 libspeex1 --yes
 
 if [ ! -f $CHROOT/$CLIENT ]; then
         echo "Install VMWare View Client in CHROOT $DIR"
@@ -48,6 +46,13 @@ cp launch_vmview $CHROOT/root/
 cp -r .config/ $CHROOT/root/
 cp vmview $CHROOT/usr/share/ltsp/screen.d/
 cp view-mandatory-config $CHROOT/etc/vmware/
+cp fixes $CHROOT/etc/init.d/
+
+echo "Fixing Sound"
+echo "---------------------------------------------------------------------------------------------"
+echo "options snd-hda-intel model=auto" >> $CHROOT/etc/modprobe.d/alsa-base.conf
+echo "blacklist snd_hda_codec_hdmi" >> $CHROOT/etc/modprobe.d/blacklist.conf
+
 
 echo "Updating LTSP image"
 echo "---------------------------------------------------------------------------------------------"
